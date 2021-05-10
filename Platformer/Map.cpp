@@ -59,8 +59,8 @@ void CMap::AddRandomPlatforms(const int& number, const int& level)
 
 		do
 		{
-			randX = (rand() % 100);
-		} while (std::abs(randX - lastX) < 70);
+			randX = (rand() % 380);
+		} while (std::abs(randX - lastX) < 50);
 
 		lastX = randX;
 		
@@ -76,14 +76,7 @@ void CMap::AddRandomPlatforms(const int& number, const int& level)
 		}
 		else
 		{
-			if (i % 2 == 0)
-			{
-				mPlatforms.push_back(std::make_shared<CPlatform>(sf::Vector2f(mPlatforms.back()->GetPosition().x + randX, mPlatforms.back()->GetPosition().y - randY / 2)));
-			}
-			else
-			{
-				mPlatforms.push_back(std::make_shared<CPlatform>(sf::Vector2f(mPlatforms.back()->GetPosition().x - randX, mPlatforms.back()->GetPosition().y - randY / 2)));
-			}
+			mPlatforms.push_back(std::make_shared<CPlatform>(sf::Vector2f(0.0 + randX, mPlatforms.back()->GetPosition().y - randY / 2)));	
 		}
 	}
 }

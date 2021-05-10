@@ -20,7 +20,7 @@ int main()
 { 
 	sf::Clock clock;
 
-	srand(time(0));
+	srand((unsigned)time(0));
 
 	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), WINDOW_NAME);
 	window.setFramerateLimit(60);
