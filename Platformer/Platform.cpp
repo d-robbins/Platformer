@@ -1,4 +1,4 @@
-#include "Platform.h"
+#include "platform.h"
 
 CPlatform::CPlatform(const sf::Vector2f& pos)
 	: mShape(sf::Vector2f(100.0f, 15.0f))

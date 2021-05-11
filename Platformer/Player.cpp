@@ -1,8 +1,6 @@
-#include "Player.h"
+#include "player.h"
 
-#include "Map.h"
-
-//#include "Platform.h"
+#include "map.h"
 
 const float SPEED = 200.f;
 const float GRAVITY = 12.81f;

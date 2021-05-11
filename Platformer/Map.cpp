@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "map.h"
 
 #include <random>
 
@@ -31,12 +31,17 @@ void CMap::Update(float dt)
 	{
 		if (mPlayer.GetVelocityY() >= 0)
 		{
+			// If player not on tile and player is falling check for collisions
 			for (auto& i : mPlatforms)
 			{
-				if (mPlayer.IntersectingPlatform(*i))
+				if (i->GetPosition().y >= mPlayer.GetPosition().y)
 				{
-					mPlayer.OverrideVelocity(sf::Vector2f(0.0f, 0.0f));
-					mCurrent = i.get();
+					// Check if player is intersecting platform only if platform is under player
+					if (mPlayer.IntersectingPlatform(*i))
+					{
+						mPlayer.OverrideVelocity(sf::Vector2f(0.0f, 0.0f));
+						mCurrent = i.get();
+					}
 				}
 			}
 		}
@@ -69,8 +74,10 @@ void CMap::AddRandomPlatforms(const int& number)
 		
 		do
 		{
-			randY = (rand() % 150) + 30;
-		} while (std::abs(randY - lastY) < 140);
+			randY = (rand() % 150) + 40;
+		} while (std::abs(randY - lastY) < 50);
+
+		lastY = randY;
 
  		if (mPlatforms.size() == 0)
 		{

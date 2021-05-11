@@ -26,7 +26,7 @@ public:
 	
 	bool IntersectingPlatform(const CPlatform& plat);
 
-	float GetVelocityY() { return mVelocity.y; }
+	float GetVelocityY() const { return mVelocity.y; }
 	
 	void SetFalling(bool val) { mJump = val; }
 
