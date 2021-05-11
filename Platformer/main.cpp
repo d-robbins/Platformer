@@ -39,7 +39,7 @@ int main()
 
 	bool attached = false;
 
-	map.AddRandomPlatforms(10, 0);
+	map.AddRandomPlatforms(10);
 
 	float lastPlayerPos = 0;
 
@@ -62,7 +62,7 @@ int main()
 		
 		if (map.GetPlayerPos().y < lastPlayerPos)
 		{
-			map.AddRandomPlatforms(10, 0);
+			map.AddRandomPlatforms(10);
 			lastPlayerPos -= 480;
 		}
 

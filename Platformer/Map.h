@@ -25,7 +25,7 @@ public:
 
 	//void AddPlatform(CPlatform& platform) { mPlatforms.push_back(&platform); }
 
-	void AddRandomPlatforms(const int& number, const int& level);
+	void AddRandomPlatforms(const int& number);
 
 private:
 	CPlayer mPlayer;

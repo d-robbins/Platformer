@@ -66,5 +66,10 @@ void CPlayer::OverrideVelocity(const sf::Vector2f& nV)
 
 bool CPlayer::IntersectingPlatform(const CPlatform& plat)
 {
-	return mPlayer.getGlobalBounds().intersects(plat.GetBounds());
+	sf::FloatRect platRect, playRect;
+
+	platRect = sf::FloatRect(plat.GetBounds().left, plat.GetBounds().top, plat.GetBounds().width, 5);
+	playRect = sf::FloatRect(mPlayer.getGlobalBounds().left, mPlayer.getGlobalBounds().top + 40, mPlayer.getGlobalBounds().width, 10);
+
+	return playRect.intersects(platRect);
 }

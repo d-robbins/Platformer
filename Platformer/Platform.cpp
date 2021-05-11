@@ -10,6 +10,5 @@ CPlatform::CPlatform(const sf::Vector2f& pos)
 
 bool CPlatform::HitTest(const int& x, const int& y)
 {
-	
 	return mShape.getGlobalBounds().contains(sf::Vector2f((float)x, (float)y));
 }

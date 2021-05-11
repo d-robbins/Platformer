@@ -29,12 +29,15 @@ void CMap::Update(float dt)
 
 	if (mCurrent == nullptr)
 	{
-		for (auto i : mPlatforms)
+		if (mPlayer.GetVelocityY() >= 0)
 		{
-			if (mPlayer.IntersectingPlatform(*i) && mPlayer.GetVelocityY() >= 0)
+			for (auto& i : mPlatforms)
 			{
-				mPlayer.OverrideVelocity(sf::Vector2f(0.0f, 0.0f));
-				mCurrent = i.get();
+				if (mPlayer.IntersectingPlatform(*i))
+				{
+					mPlayer.OverrideVelocity(sf::Vector2f(0.0f, 0.0f));
+					mCurrent = i.get();
+				}
 			}
 		}
 	}
@@ -48,7 +51,7 @@ void CMap::Update(float dt)
 	}
 }
 
-void CMap::AddRandomPlatforms(const int& number, const int& level)
+void CMap::AddRandomPlatforms(const int& number)
 {
 	int lastX = 0;
 	int lastY = 0;
@@ -64,7 +67,6 @@ void CMap::AddRandomPlatforms(const int& number, const int& level)
 
 		lastX = randX;
 		
-
 		do
 		{
 			randY = (rand() % 150) + 30;
